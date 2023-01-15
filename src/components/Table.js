@@ -19,26 +19,26 @@ const Table = ({ incomeValue, incomeResult, grossIncome, incomePeriod }) => {
     switch (incomePeriod) {
         case 'Weekly':
             weeklyGross = incomeValue
-            fortnightlyGross = incomeValue * 2
-            monthlyGross = incomeValue * 3
-            annualyGross = incomeValue * 4
+            fortnightlyGross = (incomeValue * 2).toFixed(2)
+            monthlyGross = (incomeValue * 3).toFixed(2)
+            annualyGross = (incomeValue * 4).toFixed(2)
             break
-        case 'Fortnigntly':
-            weeklyGross = incomeValue / 2
+        case 'Fortnightly':
+            weeklyGross = (incomeValue / 2).toFixed(2)
             fortnightlyGross = incomeValue
-            monthlyGross = incomeValue * 2
-            annualyGross = incomeValue * 3
+            monthlyGross = (incomeValue * 2).toFixed(2)
+            annualyGross = (incomeValue * 3).toFixed(2)
             break
         case 'Monthly':
-            weeklyGross = incomeValue / 3
-            fortnightlyGross = incomeValue / 2
+            weeklyGross = (incomeValue / 3).toFixed(2)
+            fortnightlyGross = (incomeValue / 2).toFixed(2)
             monthlyGross = incomeValue
-            annualyGross = incomeValue * 2
+            annualyGross = (incomeValue * 2).toFixed(2)
             break
         case 'Annualy':
-            weeklyGross = incomeValue / 4
-            fortnightlyGross = incomeValue / 3
-            monthlyGross = incomeValue / 2
+            weeklyGross = (incomeValue / 4).toFixed(2)
+            fortnightlyGross = (incomeValue / 3).toFixed(2)
+            monthlyGross = (incomeValue / 2).toFixed(2)
             annualyGross = incomeValue
             break
     }
