@@ -14,14 +14,6 @@ const Head = () => {
     const [incomeResult, setIncomeResult] = useState(null)
     const [isIncome, setIsIncome] = useState(false)
 
-    console.log(
-        'Input' + ' ' + incomeValue,
-        isIncome,
-        'Gross' + ' ' + grossIncome,
-        'Net' + ' ' + netIncome,
-        'Period' + ' ' + incomePeriod
-    )
-
     const calculateIncome = (period) => {
         let valueInc = 0
         if ((grossIncome || netIncome) && period == 'Weekly' && incomeValue) {
@@ -95,6 +87,7 @@ const Head = () => {
                     setIncomePeriod={setIncomePeriod}
                     calculateIncome={calculateIncome}
                     incomeValue={incomeValue}
+                    grossIncome={grossIncome}
                 />
             )}
             {incomeResult && isIncome && <InfoLayer />}

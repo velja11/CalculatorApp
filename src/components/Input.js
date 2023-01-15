@@ -23,7 +23,9 @@ const Input = ({
                 min="0"
                 placeholder="e.g. 12000"
                 value={incomeValue || ''}
-                onChange={(e) => setIncomeValue(e.target.value)}
+                onChange={(e) => {
+                    setIncomeValue(e.target.value)
+                }}
             />
         </div>
     )

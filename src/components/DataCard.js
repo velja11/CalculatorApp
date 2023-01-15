@@ -9,6 +9,7 @@ const DataCard = ({
     setIncomePeriod,
     calculateIncome,
     incomeValue,
+    grossIncome,
 }) => {
     return (
         <div className="bg-green-200 w-[95%] h-[60%] rounded-lg absolute left-0 right-0 top-[-90px] bottom-0 m-auto">
@@ -28,7 +29,12 @@ const DataCard = ({
                     <span className="absolute left-[167px]">income</span>
                 </div>
             </div>
-            <Table incomeResult={incomeResult} incomeValue={incomeValue} />
+            <Table
+                incomeResult={incomeResult}
+                incomeValue={incomeValue}
+                grossIncome={grossIncome}
+                incomePeriod={incomePeriod}
+            />
         </div>
     )
 }
