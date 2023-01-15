@@ -9,7 +9,9 @@
         "build-css": "tailwindcss build -i src/index.css -o src/index2.css --watch",
         "lint": "eslint .",
         "lint:fix": "eslint --fix",
-        "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+        "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+        "build:dev": "dotenv -e .env.development react-scripts build",
+        "build:prod": "dotenv -e .env.production react-scripts build"
     },
     "keywords": [],
     "author": "",
@@ -22,6 +24,7 @@
         "babel-loader": "^9.1.2",
         "babel-preset-react": "^6.24.1",
         "css-loader": "^6.7.3",
+        "dotenv-cli": "^6.0.0",
         "eslint": "^8.31.0",
         "eslint-config-prettier": "^8.6.0",
         "eslint-plugin-prettier": "^4.2.1",
