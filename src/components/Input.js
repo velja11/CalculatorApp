@@ -24,7 +24,14 @@ const Input = ({
                 placeholder="e.g. 12000"
                 value={incomeValue || ''}
                 onChange={(e) => {
-                    setIncomeValue(e.target.value)
+                    let value = e.target.value
+                    let removeChar = value.replace(/[^0-9\.]/g, '')
+                    let removeDot = removeChar.replace(/\./g, '')
+                    let formatNum = removeDot.replace(
+                        /\B(?=(\d{3})+(?!\d))/g,
+                        ','
+                    )
+                    setIncomeValue(formatNum)
                 }}
             />
         </div>

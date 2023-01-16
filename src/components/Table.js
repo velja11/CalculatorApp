@@ -1,45 +1,46 @@
 import React from 'react'
+import convertFunction from './convertFunction'
 
 const Table = ({ incomeValue, incomeResult, grossIncome, incomePeriod }) => {
     let weekly = grossIncome
-        ? `${(incomeValue * 0.61).toFixed(2)}`
-        : `${(incomeValue * 0.4).toFixed(2)}`
+        ? `${(convertFunction(incomeValue) * 0.61).toFixed(2)}`
+        : `${(convertFunction(incomeValue) * 0.4).toFixed(2)}`
     let fortnightly = grossIncome
-        ? `${(incomeValue * 0.68).toFixed(2)}`
-        : `${(incomeValue * 0.43).toFixed(2)}`
+        ? `${(convertFunction(incomeValue) * 0.68).toFixed(2)}`
+        : `${(convertFunction(incomeValue) * 0.43).toFixed(2)}`
     let monthly = grossIncome
-        ? `${(incomeValue * 0.7).toFixed(2)}`
-        : `${(incomeValue * 0.46).toFixed(2)}`
+        ? `${(convertFunction(incomeValue) * 0.7).toFixed(2)}`
+        : `${(convertFunction(incomeValue) * 0.46).toFixed(2)}`
     let annualy = grossIncome
-        ? `${(incomeValue * 0.73).toFixed(2)}`
-        : `${(incomeValue * 0.49).toFixed(2)}`
+        ? `${(convertFunction(incomeValue) * 0.73).toFixed(2)}`
+        : `${(convertFunction(incomeValue) * 0.49).toFixed(2)}`
 
     let weeklyGross, fortnightlyGross, monthlyGross, annualyGross
 
     switch (incomePeriod) {
         case 'Weekly':
-            weeklyGross = incomeValue
-            fortnightlyGross = (incomeValue * 2).toFixed(2)
-            monthlyGross = (incomeValue * 3).toFixed(2)
-            annualyGross = (incomeValue * 4).toFixed(2)
+            weeklyGross = convertFunction(incomeValue)
+            fortnightlyGross = (convertFunction(incomeValue) * 2).toFixed(2)
+            monthlyGross = (convertFunction(incomeValue) * 3).toFixed(2)
+            annualyGross = (convertFunction(incomeValue) * 4).toFixed(2)
             break
         case 'Fortnightly':
-            weeklyGross = (incomeValue / 2).toFixed(2)
-            fortnightlyGross = incomeValue
-            monthlyGross = (incomeValue * 2).toFixed(2)
-            annualyGross = (incomeValue * 3).toFixed(2)
+            weeklyGross = (convertFunction(incomeValue) / 2).toFixed(2)
+            fortnightlyGross = convertFunction(incomeValue)
+            monthlyGross = (convertFunction(incomeValue) * 2).toFixed(2)
+            annualyGross = (convertFunction(incomeValue) * 3).toFixed(2)
             break
         case 'Monthly':
-            weeklyGross = (incomeValue / 3).toFixed(2)
-            fortnightlyGross = (incomeValue / 2).toFixed(2)
-            monthlyGross = incomeValue
-            annualyGross = (incomeValue * 2).toFixed(2)
+            weeklyGross = (convertFunction(incomeValue) / 3).toFixed(2)
+            fortnightlyGross = (convertFunction(incomeValue) / 2).toFixed(2)
+            monthlyGross = convertFunction(incomeValue)
+            annualyGross = (convertFunction(incomeValue) * 2).toFixed(2)
             break
         case 'Annualy':
-            weeklyGross = (incomeValue / 4).toFixed(2)
-            fortnightlyGross = (incomeValue / 3).toFixed(2)
-            monthlyGross = (incomeValue / 2).toFixed(2)
-            annualyGross = incomeValue
+            weeklyGross = (convertFunction(incomeValue) / 4).toFixed(2)
+            fortnightlyGross = (convertFunction(incomeValue) / 3).toFixed(2)
+            monthlyGross = (convertFunction(incomeValue) / 2).toFixed(2)
+            annualyGross = convertFunction(incomeValue)
             break
     }
 
@@ -62,7 +63,7 @@ const Table = ({ incomeValue, incomeResult, grossIncome, incomePeriod }) => {
                 </tr>
             </thead>
             <tbody>
-                <tr className="bg-white border-b border-t">
+                <tr className="bg-white border-b border-t hover:bg-green-300">
                     <th
                         scope="row"
                         className="px-6 py-4 font-medium text-gray-900"
@@ -75,7 +76,7 @@ const Table = ({ incomeValue, incomeResult, grossIncome, incomePeriod }) => {
                     </td>
                     <td className="px-6 py-4">${weekly}</td>
                 </tr>
-                <tr className="bg-white border-b">
+                <tr className="bg-white border-b hover:bg-green-300">
                     <th
                         scope="row"
                         className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
@@ -88,7 +89,7 @@ const Table = ({ incomeValue, incomeResult, grossIncome, incomePeriod }) => {
                     </td>
                     <td className="px-6 py-4">${fortnightly}</td>
                 </tr>
-                <tr className="bg-white border-b">
+                <tr className="bg-white border-b hover:bg-green-300">
                     <th
                         scope="row"
                         className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
@@ -101,7 +102,7 @@ const Table = ({ incomeValue, incomeResult, grossIncome, incomePeriod }) => {
                     </td>
                     <td className="px-6 py-4">${monthly}</td>
                 </tr>
-                <tr className="bg-white dark:bg-gray-800">
+                <tr className="bg-white dark:bg-gray-800 hover:bg-green-300">
                     <th
                         scope="row"
                         className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"

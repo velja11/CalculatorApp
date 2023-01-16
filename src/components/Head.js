@@ -5,6 +5,7 @@ import Title from './Title'
 import { useState } from 'react'
 import DataCard from './DataCard'
 import InfoLayer from './InfoLayer'
+import convertFunction from './convertFunction'
 
 const Head = () => {
     const [grossIncome, setGrossIncome] = useState(false)
@@ -18,9 +19,9 @@ const Head = () => {
         let valueInc = 0
         if ((grossIncome || netIncome) && period == 'Weekly' && incomeValue) {
             if (grossIncome) {
-                valueInc = incomeValue * 0.61
+                valueInc = convertFunction(incomeValue) * 0.61
             } else {
-                valueInc = incomeValue * 0.4
+                valueInc = convertFunction(incomeValue) * 0.4
             }
 
             setIncomeResult(valueInc.toFixed(2))
@@ -31,9 +32,9 @@ const Head = () => {
             incomeValue
         ) {
             if (grossIncome) {
-                valueInc = incomeValue * 0.68
+                valueInc = convertFunction(incomeValue) * 0.68
             } else {
-                valueInc = incomeValue * 0.43
+                valueInc = convertFunction(incomeValue) * 0.43
             }
             setIncomeResult(valueInc.toFixed(2))
             setIsIncome(true)
@@ -43,9 +44,9 @@ const Head = () => {
             incomeValue
         ) {
             if (grossIncome) {
-                valueInc = incomeValue * 0.7
+                valueInc = convertFunction(incomeValue) * 0.7
             } else {
-                valueInc = incomeValue * 0.46
+                valueInc = convertFunction(incomeValue) * 0.46
             }
             setIncomeResult(valueInc.toFixed(2))
             setIsIncome(true)
@@ -55,9 +56,9 @@ const Head = () => {
             incomeValue
         ) {
             if (grossIncome) {
-                valueInc = incomeValue * 0.73
+                valueInc = convertFunction(incomeValue) * 0.73
             } else {
-                valueInc = incomeValue * 0.49
+                valueInc = convertFunction(incomeValue) * 0.49
             }
             setIncomeResult(valueInc.toFixed(2))
             setIsIncome(true)
